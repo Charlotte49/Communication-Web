@@ -9,8 +9,9 @@ function ajaxRequest(type, url,callback)
         {
             case 200:
             case 201: console.log(xhr.responseText); callback(xhr.responseText);
+        
             break;
-            default: console.log('HTTP error:' + xhr.status);
+            default: httpErrors(xhr.status);
 
         }
     };
@@ -22,5 +23,33 @@ function display(text)
 {
     document.getElementById('timestamp').innerHTML='<span class="material-icons">watch_later</span> <strong>'+ text+ '</strong>';
 }
-setTimeout(ajaxRequest('GET','php/timestamp.php', display), 1000);
 
+function httpErrors(errorCode)
+{
+    document.getElementById('errors').style.display='block';
+    switch(errorCode)
+    {
+            
+        case 400: document.getElementById('errors').innerHTML= errorCode+' Requête incorrecte';
+        break;
+
+        case 401: document.getElementById('errors').innerHTML=errorCode+' Authentifiez vous';
+        break;
+
+        case 403:  document.getElementById('errors').innerHTML=errorCode+' Accès refusé';           
+        break;
+
+        case 404:   document.getElementById('errors').innerHTML=errorCode+' Page non trouvée';
+        break;
+
+        case 500: document.getElementById('errors').innerHTML=errorCode+ ' Erreur interne du serveur';
+        break;
+
+        case 503: document.getElementById('errors').innerHTML=errorCode+' Service indisponible';
+        break;
+
+    }
+}
+
+
+setInterval(ajaxRequest,1000,'GET','php/timestampp.php', display);
