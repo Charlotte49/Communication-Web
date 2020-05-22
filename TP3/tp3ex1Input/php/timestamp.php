@@ -7,6 +7,10 @@
   header('Cache-control: no-store, no-cache, must-revalidate');
   header('Pragma: no-cache');
   header('HTTP/1.1 200 OK');
-  echo $data;
+  echo $data;  
+  include "time.php";
   exit;
+
+
+
 ?>
