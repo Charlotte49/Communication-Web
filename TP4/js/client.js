@@ -1,4 +1,4 @@
-let websocket;
+/*let websocket;
 websocket = new WebSocket('ws://localhost:12345');
 
 websocket.onopen = function(event) {
@@ -12,4 +12,5 @@ websocket.onmessage = function(event) {
 
 websocket.onclose = function() {
    console.log('Communication terminée');
-}
+
+  }*/

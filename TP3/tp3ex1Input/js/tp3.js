@@ -48,6 +48,8 @@ function httpErrors(errorCode)
         case 503: document.getElementById('errors').innerHTML='<span class="material-icons">report</span> ' +errorCode+' Service indisponible';
         break;
 
+        default: document.getElementById('errors').innerHTML='<span class="material-icons">report</span> Erreur inconnue';
+
     }
 }
 
